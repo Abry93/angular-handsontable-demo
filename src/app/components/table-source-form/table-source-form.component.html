@@ -1,0 +1,50 @@
+<form [formGroup]="dataForm" (ngSubmit)="onSubmit()" class="space-y-4 main-container">
+
+  <div>
+    <label for="productName" class="form-label">Product Name:</label>
+    <input
+      id="productName"
+      type="text"
+      formControlName="productName"
+      class="form-input"
+    />
+    <p *ngIf="dataForm.get('productName')?.touched && dataForm.get('productName')?.invalid" class="form-input-error">
+      Product Name is required.
+    </p>
+  </div>
+
+  <div>
+    <label for="sales" class="form-label">Sales:</label>
+    <input
+      id="sales"
+      type="text"
+      formControlName="sales"
+      class="form-input"
+    />
+    <p *ngIf="dataForm.get('sales')?.touched && dataForm.get('sales')?.invalid" class="form-input-error">
+      <span *ngIf="dataForm.get('sales')?.errors?.['required']">Sales is required.</span>
+      <span *ngIf="dataForm.get('sales')?.errors?.['pattern']">Sales must be numeric.</span>
+    </p>
+  </div>
+
+  <div>
+    <label for="region" class="form-label">Region:</label>
+    <input
+      id="region"
+      type="text"
+      formControlName="region"
+      class="form-input"
+    />
+    <p *ngIf="dataForm.get('region')?.touched && dataForm.get('region')?.invalid" class="form-input-error">
+      Region is required.
+    </p>
+  </div>
+
+  <button
+    type="submit"
+    [disabled]="dataForm.invalid"
+    class="w-full px-4 py-2 bg-accentBlue text-white font-medium text-sm rounded-md shadow-sm hover:bg-accentBlueDarker disabled:bg-gray-300 disabled:cursor-not-allowed"
+  >
+    Submit
+  </button>
+</form>
