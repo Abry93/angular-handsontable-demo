@@ -23,6 +23,7 @@ export class GridTableComponent implements OnInit {
     ],
     rowHeaders: true,
     width: '100%',
+    themeName: 'ht-theme-main',
     licenseKey: 'non-commercial-and-evaluation',
   };
 
